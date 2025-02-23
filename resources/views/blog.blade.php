@@ -60,7 +60,7 @@
                             <!--begin::Body-->
                             <div class="mb-3">
                                 <!--begin::Title-->
-                                <a href="/blog/{{ $blogs[0]['id'] }}" class="fs-2 text-gray-900 fw-bold text-hover-primary text-gray-900 lh-base">{{ $blogs[0]['title'] }}</a>
+                                <a href="/blog/{{ $blogs[0]['slug'] }}" class="fs-2 text-gray-900 fw-bold text-hover-primary text-gray-900 lh-base">{{ $blogs[0]['title'] }}</a>
                                 <!--end::Title-->
                                 <!--begin::Text-->
                                 <div class="fw-semibold fs-5 text-gray-600 text-gray-900 mt-4">{{ Str::limit($blogs[0]['body'],350) }}</div>
@@ -102,7 +102,7 @@
                                 <!--begin::Body-->
                                 <div class="mb-3">
                                     <!--begin::Title-->
-                                    <a href="/blog/{{ $blog['id'] }}" class="fw-bold text-gray-900 mb-4 fs-2 lh-base text-hover-primary">{{ $blog['title'] }}</a>
+                                    <a href="/blog/{{ $blog['slug'] }}" class="fw-bold text-gray-900 mb-4 fs-2 lh-base text-hover-primary">{{ $blog['title'] }}</a>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fw-semibold fs-5 mt-4 text-gray-600 text-gray-900">{{ Str::limit($blog['body'],100) }}</div>

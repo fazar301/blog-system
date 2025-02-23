@@ -13,6 +13,7 @@ Route::get('/blog', function () {
     return view('blog',['pageTitle' => "Blog", 'blogs' => [
         [
             'id' => 1,
+            'slug' => 'admin-panel-how-to-get-started-tutorial-create-easy-customizable-applications',
             'title' => 'Admin Panel - How To Get Started Tutorial. Create easy customizable applications',
             'author' => 'David Morgan',
             'body' => 'We’ve been focused on making the from v4 to v5 but we have also not been afraid to step away been focused on from v4 to v5 speaker approachable making focused a but from a step away afraid to step away been focused Writing a blog post is a little like driving; you can study the highway code (or read articles telling you how to write a blog post) for months, but nothing can prepare you for the real thing like getting behind the wheel',
@@ -23,6 +24,7 @@ Route::get('/blog', function () {
         ],
         [
             'id' => 2,
+            'slug' => 'bootstrap-admin-theme-how-to-get-started-tutorial-create-customizable-applications',
             'title' => 'Bootstrap Admin Theme - How To Get Started Tutorial. Create customizable applications',
             'author' => 'Jane Miller',
             'body' => 'We’ve been focused on making the from v4 to v5 a but we’ve also not been afraid to step away been focused on from v4 to v5 speaker approachable making focused',
@@ -33,6 +35,7 @@ Route::get('/blog', function () {
         ],
         [
             'id' => 3,
+            'slug' => 'angular-admin-theme-how-to-get-started-tutorial',
             'title' => 'Angular Admin Theme - How To Get Started Tutorial.',
             'author' => 'David Morgan',
             'body' => 'We’ve been focused on making the from v4 to v5 a but we’ve also not been afraid to step away',
@@ -43,6 +46,7 @@ Route::get('/blog', function () {
         ],
         [
             'id' => 4,
+            'slug' => 'react-admin-theme-how-to-get-started-tutorial-create-best-applications',
             'title' => 'React Admin Theme - How To Get Started Tutorial. Create best applications',
             'author' => 'Justin Miller',
             'body' => 'We’ve been focused on making the from v4 to v5 but we’ve also not been afraid to step away been focused',
@@ -50,13 +54,14 @@ Route::get('/blog', function () {
             'thumb' => 'none.jpg',
             'categories' => 'news',
             'author_pic' => '300-5.jpg'
-        ],
+        ]
     ]]);
 });
-Route::get('/blog/{id}', function($id){
+Route::get('/blog/{slug}', function($slug){
     $blogs = [
         [
             'id' => 1,
+            'slug' => 'admin-panel-how-to-get-started-tutorial-create-easy-customizable-applications',
             'title' => 'Admin Panel - How To Get Started Tutorial. Create easy customizable applications',
             'author' => 'David Morgan',
             'body' => 'We’ve been focused on making the from v4 to v5 but we have also not been afraid to step away been focused on from v4 to v5 speaker approachable making focused a but from a step away afraid to step away been focused Writing a blog post is a little like driving; you can study the highway code (or read articles telling you how to write a blog post) for months, but nothing can prepare you for the real thing like getting behind the wheel',
@@ -67,6 +72,7 @@ Route::get('/blog/{id}', function($id){
         ],
         [
             'id' => 2,
+            'slug' => 'bootstrap-admin-theme-how-to-get-started-tutorial-create-customizable-applications',
             'title' => 'Bootstrap Admin Theme - How To Get Started Tutorial. Create customizable applications',
             'author' => 'Jane Miller',
             'body' => 'We’ve been focused on making the from v4 to v5 a but we’ve also not been afraid to step away been focused on from v4 to v5 speaker approachable making focused',
@@ -77,6 +83,7 @@ Route::get('/blog/{id}', function($id){
         ],
         [
             'id' => 3,
+            'slug' => 'angular-admin-theme-how-to-get-started-tutorial',
             'title' => 'Angular Admin Theme - How To Get Started Tutorial.',
             'author' => 'David Morgan',
             'body' => 'We’ve been focused on making the from v4 to v5 a but we’ve also not been afraid to step away',
@@ -87,6 +94,7 @@ Route::get('/blog/{id}', function($id){
         ],
         [
             'id' => 4,
+            'slug' => 'react-admin-theme-how-to-get-started-tutorial-create-best-applications',
             'title' => 'React Admin Theme - How To Get Started Tutorial. Create best applications',
             'author' => 'Justin Miller',
             'body' => 'We’ve been focused on making the from v4 to v5 but we’ve also not been afraid to step away been focused',
@@ -96,8 +104,8 @@ Route::get('/blog/{id}', function($id){
             'author_pic' => '300-5.jpg'
         ]
     ];
-    $blog = Arr::first($blogs, function($blog) use($id){
-        return $blog['id'] == $id;
+    $blog = Arr::first($blogs, function($blog) use($slug){
+        return $blog['slug'] == $slug;
     });
     
     return view('blog-detail',['pageTitle' => $blog['title'], 'blog' => $blog]);
