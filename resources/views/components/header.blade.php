@@ -14,7 +14,7 @@
         </li>
         <!--end::Item-->
         <!--begin::Item-->
-        <li class="breadcrumb-item text-gray-700 mx-n1 fw-bold ">{{ $slot }}</li>
+        {{ $slot }}
         <!--end::Item-->
     </ul>
     <!--end::Breadcrumb-->

@@ -1,5 +1,39 @@
 <x-layout>
-    <x-slot:title>{{ $pageTitle }}</x-slot:title>
+    <!--begin::Toolbar-->
+    <div id="kt_app_toolbar" class="app-toolbar pt-7 pt-lg-10 mb-5">
+        <!--begin::Toolbar wrapper-->
+        <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+            <!--begin::Breadcrumb And Page Title-->
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
+                <!--begin::Breadcrumb-->
+                <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7">
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1 mx-n1">
+                        <a href="/" class="text-hover-primary">
+                            <i class="ki-outline ki-home text-gray-700 fs-6"></i>
+                        </a>
+                    </li>
+                    <!--end::Item-->
+                    <li class="breadcrumb-item">
+                        <i class="ki-outline ki-right fs-7 text-gray-700"></i>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-gray-700 mx-n1 fw-bold ">{{ $pageTitle }}
+                    <!--end::Item-->
+                </ul>
+                <!--end::Breadcrumb-->
+                <!--begin::Title-->
+                
+                <!--end::Title-->
+            </div>
+            <!--end::Page title-->
+            <!--end::Breadcrumb And Page Title-->
+        </div>
+        <!--end::Toolbar wrapper-->
+    </div>
+    <!--end::Toolbar-->
     <!--begin::Home card-->
     <div class="card">
         <!--begin::Body-->
@@ -17,7 +51,7 @@
                     <!--begin::Col-->
                     <div class="col-md-6">
                         <!--begin::Feature post-->
-                        <div class="h-100 d-flex flex-column justify-content-between pe-lg-6 mb-lg-0 mb-10">
+                        <div class="h-100 d-flex flex-column justify-content-between pb-16 pe-lg-6 mb-lg-0 mb-10">
                             <!--begin::Video-->
                             <div class="mb-3">
                                 <img src="/assets/img/{{ $blogs[0]['thumb'] }}" alt="" class="embed-responsive-item card-rounded h-275px w-100">
@@ -26,7 +60,7 @@
                             <!--begin::Body-->
                             <div class="mb-3">
                                 <!--begin::Title-->
-                                <a href="#" class="fs-2 text-gray-900 fw-bold text-hover-primary text-gray-900 lh-base">{{ $blogs[0]['title'] }}</a>
+                                <a href="/blog/{{ $blogs[0]['id'] }}" class="fs-2 text-gray-900 fw-bold text-hover-primary text-gray-900 lh-base">{{ $blogs[0]['title'] }}</a>
                                 <!--end::Title-->
                                 <!--begin::Text-->
                                 <div class="fw-semibold fs-5 text-gray-600 text-gray-900 mt-4">{{ Str::limit($blogs[0]['body'],350) }}</div>
@@ -64,11 +98,11 @@
                         <!--begin::Post-->
                         @foreach ($blogs as $blog)
                             @if ($loop->first) @continue @endif
-                            <div class="ps-lg-6">
+                            <div class="ps-lg-6 mb-16">
                                 <!--begin::Body-->
                                 <div class="mb-3">
                                     <!--begin::Title-->
-                                    <a href="#" class="fw-bold text-gray-900 mb-4 fs-2 lh-base text-hover-primary">{{ $blog['title'] }}</a>
+                                    <a href="/blog/{{ $blog['id'] }}" class="fw-bold text-gray-900 mb-4 fs-2 lh-base text-hover-primary">{{ $blog['title'] }}</a>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="fw-semibold fs-5 mt-4 text-gray-600 text-gray-900">{{ Str::limit($blog['body'],100) }}</div>

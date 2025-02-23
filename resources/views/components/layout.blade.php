@@ -54,21 +54,9 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="app-main flex-column flex-row-fluid container" id="kt_app_main">
 							<!--begin::Content wrapper-->
 							<div class="d-flex flex-column flex-column-fluid">
-								<!--begin::Toolbar-->
-								<div id="kt_app_toolbar" class="app-toolbar pt-7 pt-lg-10">
-									<!--begin::Toolbar wrapper-->
-									<div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
-                                        <!--begin::Breadcrumb And Page Title-->
-										<x-header>{{ $title }}</x-header>
-                                        <!--end::Breadcrumb And Page Title-->
-									</div>
-									<!--end::Toolbar wrapper-->
-								</div>
-								<!--end::Toolbar-->
-								<!--begin::Content-->
-								<div id="kt_app_content" class="app-content">
+								
                                    {{ $slot }}
-                                </div>
+
 								<!--end::Content-->
 							</div>
 							<!--end::Content wrapper-->
