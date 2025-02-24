@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
 
@@ -15,11 +14,8 @@ Route::get('/blog', function () {
     return view('blog',['pageTitle' => "Blog", 'blogs' => Blog::all()]);
 });
 Route::get('/blog/{slug}', function($slug){
-    $blogs = Blog::all();
-    $blog = Arr::first($blogs, function($blog) use($slug){
-        return $blog['slug'] == $slug;
-    });
     
+    $blog = Blog::find($slug);    
     return view('blog-detail',['pageTitle' => $blog['title'], 'blog' => $blog]);
 });
 Route::get('/contact', function () {

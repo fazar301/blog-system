@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 class Blog {
     public static function all(){
@@ -52,5 +53,13 @@ class Blog {
                 'author_pic' => '300-5.jpg'
             ]
         ];
+    }
+
+    public static function find($slug): array{
+        $blog = Arr::first(static::all(), fn($blog) => $blog['slug'] == $slug );
+        if(!$blog){
+            abort(404);
+        }
+        return $blog;
     }
 }
