@@ -62,19 +62,19 @@
                                         <i class="ki-outline ki-element-11 text-primary fs-2 me-1"></i>
                                         <!--end::Icon-->
                                         <!--begin::Label-->
-                                        <span class="fw-bold text-gray-500">{{ $blog['created_at'] }}</span>
+                                        <span class="fw-bold text-gray-500">{{ $blog->created_at->diffForHumans()}}</span>
                                         <!--end::Label-->
                                     </div>
                                     <!--end::Item-->
                                 </div>
                                 <!--end::Info-->
                                 <!--begin::Title-->
-                                <p class="text-gray-900 fs-2 fw-bold">{{ $blog['title'] }}</p>
+                                <p class="text-gray-900 fs-2 fw-bold">{{ $blog->title }}</p>
                                 <!--end::Title-->
                                 <!--begin::Container-->
                                 <div class="overlay mt-8">
                                     <!--begin::Image-->
-                                    <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-350px" style="background-image:url('assets/media/stock/1600x800/img-1.jpg')"></div>
+                                    <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-350px" style="background-image:url('assets/img/{{ $blog->thumb }}')"></div>
                                     <!--end::Image-->
                                 </div>
                                 <!--end::Container-->
@@ -83,7 +83,7 @@
                             <!--begin::Description-->
                             <div class="fs-5 fw-semibold text-gray-600">
                                 <!--begin::Text-->
-                                <p class="mb-17">{{ $blog['body'] }}</p>
+                                <p class="mb-17">{{ $blog->body }}</p>
                                 <!--end::Text-->
                             </div>
                             <!--end::Description-->
@@ -93,12 +93,12 @@
                                 <div class="text-center flex-shrink-0 me-7 me-lg-13">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-70px symbol-circle mb-2">
-                                        <img src="assets/media/avatars/300-2.jpg" class="" alt="" />
+                                        <img src="assets/media/avatars/{{ $blog->author_pic }}" class="" alt="" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Info-->
                                     <div class="mb-0">
-                                        <a href="pages/user-profile/overview.html" class="text-gray-700 fw-bold text-hover-primary">Jane Johnson</a>
+                                        <a href="pages/user-profile/overview.html" class="text-gray-700 fw-bold text-hover-primary">{{ $blog->author }}</a>
                                         <span class="text-gray-500 fs-7 fw-semibold d-block mt-1">Co-founder</span>
                                     </div>
                                     <!--end::Info-->

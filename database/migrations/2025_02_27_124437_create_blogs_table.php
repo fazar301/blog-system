@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('author');
+            $table->foreignId('author_id')->constrained(
+                table: 'users', 
+                indexName: 'blogs_author_id'
+            );
+
             $table->text('body');
             $table->string('thumb');
             $table->string('categories');

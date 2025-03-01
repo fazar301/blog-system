@@ -48,50 +48,52 @@
                 <!--end::Separator-->
                 <!--begin::Row-->
                 <div class="row">
-                    <!--begin::Col-->
-                    <div class="col-md-6">
-                        <!--begin::Feature post-->
-                        <div class="h-100 d-flex flex-column justify-content-between pb-16 pe-lg-6 mb-lg-0 mb-10">
-                            <!--begin::Video-->
-                            <div class="mb-3">
-                                <img src="/assets/img/{{ $blogs[0]['thumb'] }}" alt="" class="embed-responsive-item card-rounded h-275px w-100">
-                            </div>
-                            <!--end::Video-->
-                            <!--begin::Body-->
-                            <div class="mb-3">
-                                <!--begin::Title-->
-                                <a href="/blog/{{ $blogs[0]['slug'] }}" class="fs-2 text-gray-900 fw-bold text-hover-primary text-gray-900 lh-base">{{ $blogs[0]['title'] }}</a>
-                                <!--end::Title-->
-                                <!--begin::Text-->
-                                <div class="fw-semibold fs-5 text-gray-600 text-gray-900 mt-4">{{ Str::limit($blogs[0]['body'],350) }}</div>
-                                <!--end::Text-->
-                            </div>
-                            <!--end::Body-->
-                            <!--begin::Footer-->
-                            <div class="d-flex flex-stack flex-wrap">
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center pe-2">
-                                    <!--begin::Avatar-->
-                                    <div class="symbol symbol-35px symbol-circle me-3">
-                                        <img alt="" src="assets/media/avatars/{{ $blogs[0]['author_pic'] }}" />
-                                    </div>
-                                    <!--end::Avatar-->
+                    @if (!$blogs->isEmpty())
+                        <div class="col-md-6">
+                            <!--begin::Feature post-->
+                            <div class="h-100 d-flex flex-column justify-content-between pb-16 pe-lg-6 mb-lg-0 mb-10">
+                                <!--begin::Video-->
+                                <div class="mb-3">
+                                    <img src="/assets/img/{{ $blogs[0]->thumb }}" alt="" class="embed-responsive-item card-rounded h-275px w-100">
+                                </div>
+                                <!--end::Video-->
+                                <!--begin::Body-->
+                                <div class="mb-3">
+                                    <!--begin::Title-->
+                                    <a href="/blog/{{ $blogs[0]->slug }}" class="fs-2 text-gray-900 fw-bold text-hover-primary text-gray-900 lh-base">{{ $blogs[0]->title }}</a>
+                                    <!--end::Title-->
                                     <!--begin::Text-->
-                                    <div class="fs-5 fw-bold">
-                                        <a href="pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">{{ $blogs[0]['author'] }}</a>
-                                        <span class="text-muted">on {{ $blogs[0]['created_at'] }}</span>
-                                    </div>
+                                    <div class="fw-semibold fs-5 text-gray-600 text-gray-900 mt-4">{{ Str::limit($blogs[0]->body,350) }}</div>
                                     <!--end::Text-->
                                 </div>
-                                <!--end::Item-->
-                                <!--begin::Label-->
-                                <x-category-label category="{{ $blogs[0]['categories'] }}">{{ Str::upper($blogs[0]['categories']) }}</x-category-label>
-                                <!--end::Label-->
+                                <!--end::Body-->
+                                <!--begin::Footer-->
+                                <div class="d-flex flex-stack flex-wrap">
+                                    <!--begin::Item-->
+                                    <div class="d-flex align-items-center pe-2">
+                                        <!--begin::Avatar-->
+                                        <div class="symbol symbol-35px symbol-circle me-3">
+                                            <img alt="" src="assets/media/avatars/{{ $blogs[0]->author_pic }}" />
+                                        </div>
+                                        <!--end::Avatar-->
+                                        <!--begin::Text-->
+                                        <div class="fs-5 fw-bold">
+                                            <a href="pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">{{ $blogs[0]->author }}</a>
+                                            <span class="text-muted">on {{ $blogs[0]->created_at->diffForHumans() }}</span>
+                                        </div>
+                                        <!--end::Text-->
+                                    </div>
+                                    <!--end::Item-->
+                                    <!--begin::Label-->
+                                    <x-category-label category="{{ $blogs[0]['categories'] }}">{{ Str::upper($blogs[0]['categories']) }}</x-category-label>
+                                    <!--end::Label-->
+                                </div>
+                                <!--end::Footer-->
                             </div>
-                            <!--end::Footer-->
+                            <!--end::Feature post-->
                         </div>
-                        <!--end::Feature post-->
-                    </div>
+                    @endif
+                    <!--begin::Col-->
                     <!--end::Col-->
                     <!--begin::Col-->
                     <div class="col-md-6 justify-content-between d-flex flex-column">
@@ -102,10 +104,10 @@
                                 <!--begin::Body-->
                                 <div class="mb-3">
                                     <!--begin::Title-->
-                                    <a href="/blog/{{ $blog['slug'] }}" class="fw-bold text-gray-900 mb-4 fs-2 lh-base text-hover-primary">{{ $blog['title'] }}</a>
+                                    <a href="/blog/{{ $blog->slug }}" class="fw-bold text-gray-900 mb-4 fs-2 lh-base text-hover-primary">{{ $blog->title }}</a>
                                     <!--end::Title-->
                                     <!--begin::Text-->
-                                    <div class="fw-semibold fs-5 mt-4 text-gray-600 text-gray-900">{{ Str::limit($blog['body'],100) }}</div>
+                                    <div class="fw-semibold fs-5 mt-4 text-gray-600 text-gray-900">{{ Str::limit($blog->body,100) }}</div>
                                     <!--end::Text-->
                                 </div>
                                 <!--end::Body-->
@@ -115,19 +117,19 @@
                                     <div class="d-flex align-items-center pe-2">
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle me-3">
-                                            <img src="assets/media/avatars/{{ $blog['author_pic'] }}" class="" alt="" />
+                                            <img src="assets/media/avatars/{{ $blog->author_pic }}" class="" alt="" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Text-->
                                         <div class="fs-5 fw-bold">
-                                            <a href="pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">{{ $blog['author'] }}</a>
-                                            <span class="text-muted">on {{ $blog['created_at'] }}</span>
+                                            <a href="pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">{{ $blog->author }}</a>
+                                            <span class="text-muted">on {{ $blog->created_at->diffForHumans() }}</span>
                                         </div>
                                         <!--end::Text-->
                                     </div>
                                     <!--end::Item-->
                                     <!--begin::Label-->
-                                    <x-category-label category="{{ $blog['categories'] }}">{{ Str::upper($blog['categories']) }}</x-category-label>
+                                    <x-category-label category="{{ $blog->categories }}">{{ Str::upper($blog->categories) }}</x-category-label>
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Footer-->
