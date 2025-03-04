@@ -2,9 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Blog;
+use App\Models\Categorie;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Blog>
@@ -26,7 +29,7 @@ class BlogFactory extends Factory
             'author_id' => User::factory(),
             'body' => fake()->text(200),
             'thumb' => 'Arcane.S01E04.Happy.Progress.Day28.44.png',
-            'categories' => $categories[rand(0,2)],
+            'categorie_id' => Categorie::all()->random(1)->first(),
             'author_pic' => '300-' . strval(rand(1,12)) . '.jpg'
         ];
     }

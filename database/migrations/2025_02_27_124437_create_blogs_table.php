@@ -19,10 +19,15 @@ return new class extends Migration
                 table: 'users', 
                 indexName: 'blogs_author_id'
             );
+            // $table->unsignedInteger('author_id');
+            // $table->foreign('author_id')->references('id')->on('users');
 
             $table->text('body');
             $table->string('thumb');
-            $table->string('categories');
+            $table->foreignId('categorie_id')->constrained(
+                table: 'categories',
+                indexName: 'blogs_categories_id'
+            );
             $table->string('author_pic');
             $table->timestamps();
         });

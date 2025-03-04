@@ -78,14 +78,14 @@
                                         <!--end::Avatar-->
                                         <!--begin::Text-->
                                         <div class="fs-5 fw-bold">
-                                            <a href="pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">{{ $blogs[0]->author }}</a>
+                                            <a href="/author/{{ $blogs[0]->author->username }}" class="text-gray-700 text-hover-primary">{{ $blogs[0]->author->name }}</a>
                                             <span class="text-muted">on {{ $blogs[0]->created_at->diffForHumans() }}</span>
                                         </div>
                                         <!--end::Text-->
                                     </div>
                                     <!--end::Item-->
                                     <!--begin::Label-->
-                                    <x-category-label category="{{ $blogs[0]['categories'] }}">{{ Str::upper($blogs[0]['categories']) }}</x-category-label>
+                                    <x-category-label category="{{ $blogs[0]->categorie->name }}" href="/categorie/{{ $blogs[0]->categorie->slug }}">{{ Str::upper($blogs[0]->categorie->name) }}</x-category-label>
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Footer-->
@@ -122,14 +122,14 @@
                                         <!--end::Avatar-->
                                         <!--begin::Text-->
                                         <div class="fs-5 fw-bold">
-                                            <a href="pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">{{ $blog->author }}</a>
+                                            <a href="/author/{{ $blog->author->username }}" class="text-gray-700 text-hover-primary">{{ $blog->author->name }}</a>
                                             <span class="text-muted">on {{ $blog->created_at->diffForHumans() }}</span>
                                         </div>
                                         <!--end::Text-->
                                     </div>
                                     <!--end::Item-->
                                     <!--begin::Label-->
-                                    <x-category-label category="{{ $blog->categories }}">{{ Str::upper($blog->categories) }}</x-category-label>
+                                    <x-category-label category="{{ $blog->categorie->name }}" href="/categorie/{{ $blog->categorie->slug }}">{{ Str::upper($blog->categorie->name) }}</x-category-label>
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Footer-->

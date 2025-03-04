@@ -1,1 +1,1 @@
-<span class="badge badge-light-{{ $getClass() }} fw-bold my-2">{{ $slot }}</span>
+<a class="badge badge-light-{{ $getClass() }} fw-bold my-2" {{ $attributes }}>{{ $slot }}</a>
