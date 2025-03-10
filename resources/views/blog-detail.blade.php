@@ -98,7 +98,7 @@
                                     <!--end::Avatar-->
                                     <!--begin::Info-->
                                     <div class="mb-0">
-                                        <a href="/author/{{ $blog->author->name }}" class="text-gray-700 fw-bold text-hover-primary">{{ $blog->author->name }}</a>
+                                        <a href="/author/{{ $blog->author->username }}" class="text-gray-700 fw-bold text-hover-primary">{{ $blog->author->name }}</a>
                                         <span class="text-gray-500 fs-7 fw-semibold d-block mt-1">Co-founder</span>
                                     </div>
                                     <!--end::Info-->

@@ -51,7 +51,8 @@
                     <!--begin::Content-->
                     <div class="d-flex flex-stack mb-5">
                         <!--begin::Title-->
-                        <h3 class="text-gray-900">All Blog by {{ $author->name }}</h3>
+                        <h3 class="text-gray-900">Articles by {{ $author->name }}</h3>
+                        <span class="text-muted">Total blogs {{ $totalBlogs }}</span>
                         <!--end::Title-->
                         <!--begin::Link-->
                         {{-- <a href="#" class="fs-6 fw-semibold link-primary">View All Videos</a> --}}
