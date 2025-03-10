@@ -29,7 +29,7 @@ class BlogFactory extends Factory
             'author_id' => User::factory(),
             'body' => fake()->text(200),
             'thumb' => 'Arcane.S01E04.Happy.Progress.Day28.44.png',
-            'categorie_id' => Categorie::all()->random(1),
+            'categorie_id' => Categorie::factory(),
             'author_pic' => '300-' . strval(rand(1,12)) . '.jpg'
         ];
     }

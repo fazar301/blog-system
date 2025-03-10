@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Blog;
+use App\Models\Categorie;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,9 +17,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // menjalankan user factory dan menimpa value name dan email dengan test user / test@example.com
+        // jika tidak ingin menimpa value apapun maka cukup buat ->create() saja
+        $this->call(CategorieSeeder::class);
+        Blog::factory(30)->recycle([
+            User::factory(5)->create(),
+            Categorie::all()
+        ])->create();
     }
 }

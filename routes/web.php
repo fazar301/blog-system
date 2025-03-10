@@ -20,7 +20,7 @@ Route::get('/blog/{blog:slug}', function (Blog $blog){
     return view('blog-detail',['pageTitle' => $blog['title'], 'blog' => $blog]);
 });
 Route::get('/author/{author:username}', function (User $author){
-    return view('author-blogs',['pageTitle' => $author->name, 'author' => $author, 'totalBlogs' => count($author->blogs)]);
+    return view('author-blogs',['pageTitle' => $author->name, 'author' => $author, 'totalBlogs' => count($author->blogs )]);
 });
 Route::get('/categorie/{categorie:slug}', function (Categorie $categorie){
     return view('categorie-blogs',['pageTitle' => $categorie->name, 'categorie' => $categorie]);
