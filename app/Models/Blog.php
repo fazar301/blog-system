@@ -13,7 +13,7 @@ class Blog extends Model
     protected $table = 'blogs';
     protected $fillable = ['title','author','slug','body','thumb','categories', 'author_pic'];
     protected $primaryKey = 'id';
-
+    protected $with = ['categorie','author'];
     
     public function author(): BelongsTo{
         return $this->belongsTo(User::class,'author_id');

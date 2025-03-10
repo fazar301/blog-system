@@ -17,10 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        
         // menjalankan user factory dan menimpa value name dan email dengan test user / test@example.com
         // jika tidak ingin menimpa value apapun maka cukup buat ->create() saja
+
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com'
+        // ])
+
+
         $this->call(CategorieSeeder::class);
-        Blog::factory(30)->recycle([
+        Blog::factory(100)->recycle([
             User::factory(5)->create(),
             Categorie::all()
         ])->create();
