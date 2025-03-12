@@ -1,55 +1,49 @@
 <x-layout>
-    <x-slot:title>{{ $pageTitle }}</x-slot:title>
     <!--begin::Toolbar-->
-    <div id="kt_app_toolbar" class="app-toolbar pt-7 pt-lg-10">
-        <!--begin::Toolbar wrapper-->
-        <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
-            <!--begin::Breadcrumb And Page Title-->
-            <!--begin::Page title-->
-            <div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
-                <!--begin::Breadcrumb-->
-                <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7">
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1 mx-n1">
-                        <a href="/" class="text-hover-primary">
-                            <i class="ki-outline ki-home text-gray-700 fs-6"></i>
-                        </a>
-                    </li>
-                    <!--end::Item-->
-                    <li class="breadcrumb-item">
-                        <i class="ki-outline ki-right fs-7 text-gray-700"></i>
-                    </li>
-                    <!--end::Item-->
-                    <a href="/" class="breadcrumb-item text-gray-700 mx-n1 fw-bold ">Author</a>
-                    <!--end::Item-->
-                    <li class="breadcrumb-item">
-                        <i class="ki-outline ki-right fs-7 text-gray-700"></i>
-                    </li>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item text-gray-500 mx-n1 fw-bold ">{{ $pageTitle }}</li>
-                    <!--end::Item-->
-                </ul>
-                <!--end::Breadcrumb-->
-                <!--begin::Title-->
-                
-                <!--end::Title-->
-            </div>
-            <!--end::Page title-->
-            <!--end::Breadcrumb And Page Title-->
-        </div>
-        <!--end::Toolbar wrapper-->
-    </div>
     <!--end::Toolbar-->
-    <div id="kt_app_content" class="app-content">
+    <!--begin::Home card-->
+   
         <!--begin::Post card-->
         <div class="card">
             <!--begin::Body-->
-            <div class="card-body p-lg-20 pb-lg-0">
+            <div class="card-body p-lg-20 p-5">
+                <!--begin::Toolbar wrapper-->
+                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100 mb-5">
+                    <!--begin::Breadcrumb And Page Title-->
+                    <!--begin::Page title-->
+                    <div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
+                        <!--begin::Breadcrumb-->
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7">
+                            <!--begin::Item-->
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1 mx-n1">
+                                <a href="/" class="text-hover-primary">
+                                    <i class="ki-outline ki-home text-gray-700 fs-6"></i>
+                                </a>
+                            </li>
+                            <!--end::Item-->
+                            <li class="breadcrumb-item">
+                                <i class="ki-outline ki-right fs-7 text-gray-700"></i>
+                            </li>
+                            <!--end::Item-->
+                            <a href="/author" class="breadcrumb-item text-gray-700 mx-n1 fw-bold ">Author</a>
+                            <!--end::Item-->
+                            <li class="breadcrumb-item">
+                                <i class="ki-outline ki-right fs-7 text-gray-700"></i>
+                            </li>
+                            <!--begin::Item-->
+                            <li class="breadcrumb-item text-gray-500 mx-n1 fw-bold ">{{ $pageTitle }}</li>
+                            <!--end::Item-->
+                        </ul>
+                        <!--end::Breadcrumb-->
+                    </div>
+                    <!--end::Page title-->
+                    <!--end::Breadcrumb And Page Title-->
+                </div>
+                <!--end::Toolbar wrapper-->
                 <!--begin::Section-->
                 <div class="mb-17">
                     <!--begin::Content-->
-                    <div class="d-flex flex-stack mb-5">
+                    <div class="d-flex flex-stack py-4">
                         <!--begin::Title-->
                         <h3 class="text-gray-900">Articles by {{ $author->name }}</h3>
                         <span class="text-muted">Total blogs {{ $totalBlogs }}</span>
@@ -66,7 +60,7 @@
                     <div class="row g-10">
                         @foreach ($author->blogs as $blog)
                         <!--begin::Col-->                        
-                        <div class="col-md-4">
+                        <div class="col-md-6 col-lg-4">
                             <!--begin::Feature post-->
                             <div class="card-xl-stretch me-md-6">
                                 <!--begin::Image-->
@@ -111,5 +105,4 @@
             <!--end::Body-->
         </div>
         <!--end::Post card-->
-    </div>
 </x-layout>

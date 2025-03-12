@@ -1,6 +1,6 @@
 <div id="kt_app_header" class="app-header" style="height: unset;">
     <!--begin::Header primary-->
-    <div class="app-header-primary" data-kt-sticky="true" data-kt-sticky-name="app-header-primary-sticky" data-kt-sticky-offset="{default: 'false', lg: '300px'}">
+    <div class="app-header-primary" data-kt-sticky="true" data-kt-sticky-name="app-header-primary-sticky" data-kt-sticky-offset="{default: '100px'}">
         <!--begin::Header primary container-->
         <div class="app-container container-fluid d-flex align-items-stretch justify-content-between" id="kt_app_header_primary_container">
             <!--begin::Header primary-->
@@ -30,7 +30,7 @@
                             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                             <!--end:Menu item-->
                             <!--begin:Menu item-->
-                            <x-nav-link href="/blog" :active="request()->is('blog')">Blog</x-nav-link>
+                            <x-nav-link href="/blog" :active="request()->is(['blog','blog/*','categorie/*','author/*'])">Blog</x-nav-link>
                             <!--end:Menu item-->
                             <!--begin:Menu item-->
                             <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>

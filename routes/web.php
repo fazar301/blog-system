@@ -7,13 +7,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home',['pageTitle' => "Home"]);
+    $blogs = Blog::take(4)->orderBy('created_at','desc')->get();
+    return view('home',['pageTitle' => "Home", 'blogs' => $blogs]);
 });
 Route::get('/about', function () {
     return view('about',['pageTitle' => "About", 'nama' => 'Fazar']);
 });
 Route::get('/blog', function () { 
-    $blogs = Blog::take(4)->orderBy('created_at','desc')->get();
+    $blogs = Blog::orderBy('created_at','desc')->get();
     return view('blog',['pageTitle' => "Blog", 'blogs' => $blogs]);
 });
 Route::get('/blog/{blog:slug}', function (Blog $blog){

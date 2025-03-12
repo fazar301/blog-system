@@ -49,7 +49,7 @@ License: For each use you must have a valid license purchased only from above li
 				<!--begin::Wrapper-->
 				<div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
 					<!--begin::Wrapper container-->
-					<div class="app-container container-fluid d-flex">
+					<div class="d-flex px-sm-0">
 						<!--begin::Main-->
 						<div class="app-main flex-column flex-row-fluid container" id="kt_app_main">
 							<!--begin::Content wrapper-->
