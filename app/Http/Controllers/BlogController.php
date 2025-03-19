@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function index(){
-        $blogs = Blog::orderBy('created_at','desc')->get();
-        return view('blog',['pageTitle' => "Blog", 'blogs' => $blogs]);
+        $blogs = Blog::orderBy('created_at','desc');
+        return view('blog',['pageTitle' => "Blog", 'blogs' => $blogs->filter()->get()]);
     }
     
     public function list(){

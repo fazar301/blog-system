@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -20,5 +21,9 @@ class Blog extends Model
     }
     public function categorie(): BelongsTo{
         return $this->belongsTo(Categorie::class,'categorie_id');
+    }
+
+    public function scopeFilter(Builder $query): void{
+        $query->where('title','like', '%' . request('search') . '%');
     }
 }
